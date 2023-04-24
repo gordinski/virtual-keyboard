@@ -1,0 +1,12 @@
+@import "normalize";
+@import "fonts";
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  line-height: rem(24);
+}
