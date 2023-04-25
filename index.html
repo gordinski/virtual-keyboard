@@ -12,6 +12,10 @@
   <link rel="mask-icon" href="src/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/css/style.css">
   <title>Virtual keyboard</title>
 </head>
 
@@ -21,24 +25,63 @@
     <textarea class="textarea" id="textarea" cols="50" rows="5"></textarea>
     <section class="keyboard">
       <div class="row">
-        <div class="key">Esc</div>
-        <div class="key">1</div>
-        <div class="key">2</div>
-        <div class="key">3</div>
-        <div class="key">4</div>
-        <div class="key">5</div>
-        <div class="key">6</div>
-        <div class="key">7</div>
-        <div class="key">8</div>
-        <div class="key">9</div>
-        <div class="key">0</div>
-        <div class="key">-</div>
-        <div class="key">=</div>
-        <div class="key">Backspace</div>
+        <div class="key key-double">
+          <span>~</span>
+          <span>`</span>
+        </div>
+        <div class="key key-double">
+          <span>!</span>
+          <span>1</span>
+        </div>
+        <div class="key key-double">
+          <span>@</span>
+          <span>2</span>
+        </div>
+        <div class="key key-double">
+          <span>#</span>
+          <span>3</span>
+        </div>
+        <div class="key key-double">
+          <span>$</span>
+          <span>4</span>
+        </div>
+        <div class="key key-double">
+          <span>%</span>
+          <span>5</span>
+        </div>
+        <div class="key key-double">
+          <span>^</span>
+          <span>6</span>
+        </div>
+        <div class="key key-double">
+          <span>&</span>
+          <span>7</span>
+        </div>
+        <div class="key key-double">
+          <span>*</span>
+          <span>8</span>
+        </div>
+        <div class="key key-double">
+          <span>(</span>
+          <span>9</span>
+        </div>
+        <div class="key key-double">
+          <span>)</span>
+          <span>0</span>
+        </div>
+        <div class="key key-double">
+          <span>_</span>
+          <span>-</span>
+        </div>
+        <div class="key key-double">
+          <span>+</span>
+          <span>=</span>
+        </div>
+        <div class="key backspace">Backspace</div>
       </div>
 
       <div class="row">
-        <div class="key">Tab</div>
+        <div class="key tab">Tab</div>
         <div class="key">q</div>
         <div class="key">w</div>
         <div class="key">e</div>
@@ -49,14 +92,23 @@
         <div class="key">i</div>
         <div class="key">o</div>
         <div class="key">p</div>
-        <div class="key[">[</]div>
-        <div class="key">]</div>
-        <div class="key">\</div>
-        <div class="key">Del</div>
+        <div class="key  key-double">
+          <span>{</span>
+          <span>[</span>
+        </div>
+        <div class="key  key-double">
+          <span>}</span>
+          <span>]</span>
+        </div>
+        <div class="key  key-double">
+          <span>|</span>
+          <span>\</span>
+        </div>
+        <div class="key del">Del</div>
       </div>
 
       <div class="row">
-        <div class="key">Caps Lock</div>
+        <div class="key capslock">Caps Lock</div>
         <div class="key">a</div>
         <div class="key">s</div>
         <div class="key">d</div>
@@ -66,13 +118,19 @@
         <div class="key">j</div>
         <div class="key">k</div>
         <div class="key">l</div>
-        <div class="key">;</div>
-        <div class="key">'</div>
-        <div class="key">Enter</div>
+        <div class="key  key-double">
+          <span>:</span>
+          <span>;</span>
+        </div>
+        <div class="key  key-double">
+          <span>"</span>
+          <span>'</span>
+        </div>
+        <div class="key enter">Enter</div>
       </div>
 
       <div class="row">
-        <div class="key">Shift</div>
+        <div class="key shift">Shift</div>
         <div class="key">z</div>
         <div class="key">x</div>
         <div class="key">c</div>
@@ -80,23 +138,32 @@
         <div class="key">b</div>
         <div class="key">n</div>
         <div class="key">m</div>
-        <div class="key">,</div>
-        <div class="key">.</div>
-        <div class="key">/</div>
-        <div class="key">▲</div>
-        <div class="key">Shift</div>
+        <div class="key  key-double">
+          <span><</span>
+          <span>,</span>
+        </div>
+        <div class="key  key-double">
+          <span>></span>
+          <span>.</span>
+        </div>
+        <div class="key  key-double">
+          <span>?</span>
+          <span>/</span>
+        </div>
+        <div class="key">↑</div>
+        <div class="key shift">Shift</div>
       </div>
 
       <div class="row">
-        <div class="key">Ctrl</div>
-        <div class="key">Win</div>
-        <div class="key">Alt</div>
-        <div class="key">Space</div>
-        <div class="key">Alt</div>
-        <div class="key">◄</div>
-        <div class="key">▼</div>
-        <div class="key">►</div>
-        <div class="key">Ctrl</div>
+        <div class="key ctrl-left">Ctrl</div>
+        <div class="key win">Win</div>
+        <div class="key alt">Alt</div>
+        <div class="key space">Space</div>
+        <div class="key alt">Alt</div>
+        <div class="key">←</div>
+        <div class="key">↓</div>
+        <div class="key">→</div>
+        <div class="key ctrl-right">Ctrl</div>
       </div>
     </section>
   </main>

@@ -1,5 +1,5 @@
 @import "normalize";
-@import "fonts";
+@import "helpers";
 
 html {
   font-size: 16px;
@@ -7,6 +7,106 @@ html {
 }
 
 body {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  line-height: rem(24);
+  display: flex;
+  justify-content: center;
+  background: #fbfbfb;
+  font-family: 'Source Code Pro', monospace;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: rem(1000);
+  width: 100%;
+}
+
+.textarea {
+  font-family: inherit;
+  resize: none;
+  margin-bottom: rem(30);
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  padding: rem(15);
+  border-radius: rem(16);
+  background: #fbfbfb;
+  border: rem(1) solid rgb(230, 230, 230);
+  box-shadow:
+    rem(-5) rem(-5) rem(10) rgba(0, 0, 255, 0.01),
+    rem(-2) rem(-2) rem(6) rgba(0, 0, 255, 0.03),
+    rem(0) rem(30) rem(30) rgba(0, 0, 0, 0.15);
+  user-select: none;
+}
+
+.row {
+  max-width: 100%;
+  display: flex;
+  height: rem(45);
+  gap: rem(10);
+
+  &+& {
+    margin-top: rem(10);
+  }
+}
+
+.key {
+  display: flex;
+  padding: rem(15);
+  align-items: center;
+  justify-content: center;
+  border-radius: rem(8);
+  width: rem(45);
+  box-sizing: border-box;
+  transform: translate3d(0, 0, rem(30));
+  cursor: pointer;
+  background: #fff;
+  border: rem(1) solid rgb(230, 230, 230);
+  box-shadow: 0 rem(3) 0 0 #e6e6e6;
+}
+
+.key-double {
+  flex-direction: column;
+
+  & span:first-child {
+    font-size: rem(12);
+  }
+}
+
+.backspace {
+  width: calc((rem(855) - (rem(45) * 13) - (rem(10) * 13)));
+}
+
+.tab,
+.del {
+  width: calc((rem(855) - (rem(45) * 13) - (rem(10) * 14)) / 2);
+}
+
+.capslock,
+.enter {
+  width: calc((rem(855) - (rem(45) * 11) - (rem(10) * 12)) / 2);
+}
+
+.shift {
+  width: calc((rem(855) - (rem(45) * 11) - (rem(10) * 12)) / 2);
+}
+
+.alt,
+.win {
+  width: rem(58);
+}
+
+.space {
+  width: calc((rem(855) - (rem(45) * 3) - (rem(60) * 5) - (rem(10) * 8)) + rem(3));
+}
+
+.ctrl-left {
+  width: rem(58);
+}
+
+.ctrl-right {
+  width: calc(rem(855) - (rem(58) * 4) - (rem(10) * 8) - rem(343) - (rem(45) * 3));
 }
