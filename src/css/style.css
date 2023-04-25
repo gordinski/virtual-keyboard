@@ -347,6 +347,7 @@ body {
   display: flex;
   justify-content: center;
   background: #fbfbfb;
+  color: #12073a;
   font-family: "Source Code Pro", monospace;
 }
 
@@ -357,12 +358,21 @@ body {
   flex-direction: column;
   max-width: 62.5rem;
   width: 100%;
+  gap: 1.25rem;
 }
 
 .textarea {
   font-family: inherit;
   resize: none;
   margin-bottom: 1.875rem;
+  border-radius: 1rem;
+  border: 0.0625rem solid rgb(238, 238, 238);
+  padding: 1rem;
+  transition: all 0.2s ease 0s;
+}
+.textarea:focus-visible {
+  border: 0.0625rem solid rgb(219, 219, 219);
+  outline: none;
 }
 
 .keyboard {
@@ -401,6 +411,18 @@ body {
   background: #fff;
   border: 0.0625rem solid rgb(230, 230, 230);
   box-shadow: 0 0.1875rem 0 0 #e6e6e6;
+  transition: all 0.2s ease 0s;
+}
+@media (any-hover: hover) {
+  .key:hover {
+    background: #f7f7f7;
+  }
+}
+.key:active {
+  background: #f7f7f7;
+  color: #555555;
+  box-shadow: 0 0rem 0 0 #e6e6e6;
+  transform: translateY(3px);
 }
 
 .key-double {
@@ -422,6 +444,10 @@ body {
 .capslock,
 .enter {
   width: calc((53.4375rem - 2.8125rem * 11 - 0.625rem * 12) / 2);
+}
+
+.capslock.active {
+  border: 0.0625rem solid rgba(192, 4, 4, 0.5);
 }
 
 .shift {

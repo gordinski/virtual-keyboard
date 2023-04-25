@@ -10,6 +10,7 @@ body {
   display: flex;
   justify-content: center;
   background: #fbfbfb;
+  color: #12073a;
   font-family: 'Source Code Pro', monospace;
 }
 
@@ -20,12 +21,22 @@ body {
   flex-direction: column;
   max-width: rem(1000);
   width: 100%;
+  gap: rem(20);
 }
 
 .textarea {
   font-family: inherit;
   resize: none;
   margin-bottom: rem(30);
+  border-radius: rem(16);
+  border: rem(1) solid rgb(238, 238, 238);
+  padding: rem(16);
+  transition: all 0.2s ease 0s;
+
+  &:focus-visible {
+    border: rem(1) solid rgb(219, 219, 219);
+    outline: none;
+  }
 }
 
 .keyboard {
@@ -66,6 +77,20 @@ body {
   background: #fff;
   border: rem(1) solid rgb(230, 230, 230);
   box-shadow: 0 rem(3) 0 0 #e6e6e6;
+  transition: all 0.2s ease 0s;
+
+  @media (any-hover: hover) {
+    &:hover {
+      background: #f7f7f7;
+    }
+  }
+
+  &:active {
+    background: #f7f7f7;
+    color: #555555;
+    box-shadow: 0 rem(0) 0 0 #e6e6e6;
+    transform: translateY(3px);
+  }
 }
 
 .key-double {
@@ -88,6 +113,10 @@ body {
 .capslock,
 .enter {
   width: calc((rem(855) - (rem(45) * 11) - (rem(10) * 12)) / 2);
+}
+
+.capslock.active {
+  border: rem(1) solid rgba(192, 4, 4, 0.5);
 }
 
 .shift {
