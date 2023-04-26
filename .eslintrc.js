@@ -4,8 +4,6 @@ module.exports = {
     es2021: true,
   },
   extends: 'airbnb-base',
-  overrides: [
-  ],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -14,6 +12,13 @@ module.exports = {
     'linebreak-style': [
       'error',
       'windows',
+    ],
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+      },
     ],
   },
 };

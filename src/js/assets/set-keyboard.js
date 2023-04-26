@@ -17,10 +17,10 @@ export default function setKeyboard() {
                           <div class="key" id="Digit0">0</div>
                           <div class="key" id="Minus">-</div>
                           <div class="key" id="Equal">=</div>
-                          <div class="key" id="Backspace">Backspace</div>
+                          <div class="key backspace" id="Backspace">Backspace</div>
                         </div>
                         <div class="row">
-                          <div class="key" id="Tab">Tab</div>
+                          <div class="key tab" id="Tab">Tab</div>
                           <div class="key" data-key="q" id="KeyQ"></div>
                           <div class="key" data-key="w" id="KeyW"></div>
                           <div class="key" data-key="e" id="KeyE"></div>
@@ -34,10 +34,10 @@ export default function setKeyboard() {
                           <div class="key" data-key="[" id="BracketLeft">[</div>
                           <div class="key" data-key="]" id="BracketRight">]</div>
                           <div class="key" id="Backslash">\\</div>
-                          <div class="key" id="Delete">Del</div>
+                          <div class="key del" id="Delete">Del</div>
                         </div>
                         <div class="row">
-                          <div class="key" id="CapsLock">Caps lock</div>
+                          <div class="key capslock" id="CapsLock">Caps lock</div>
                           <div class="key" data-key="a" id="KeyA"></div>
                           <div class="key" data-key="s" id="KeyS"></div>
                           <div class="key" data-key="d" id="KeyD"></div>
@@ -49,10 +49,10 @@ export default function setKeyboard() {
                           <div class="key" data-key="l" id="KeyL"></div>
                           <div class="key" data-key=";" id="Semicolon"></div>
                           <div class="key" data-key="quotes" id="Quote"></div>
-                          <div class="key" id="Enter">Enter</div>
+                          <div class="key enter" id="Enter">Enter</div>
                         </div>
                         <div class="row">
-                          <div class="key" id="ShiftLeft">Shift</div>
+                          <div class="key shift" id="ShiftLeft">Shift</div>
                           <div class="key" data-key="z" id="KeyZ"></div>
                           <div class="key" data-key="x" id="KeyX"></div>
                           <div class="key" data-key="c" id="KeyC"></div>
@@ -64,18 +64,18 @@ export default function setKeyboard() {
                           <div class="key" data-key="period" id="Period"></div>
                           <div class="key" data-key="slash" id="Slash">/</div>
                           <div class="key" id="ArrowUp">↑</div>
-                          <div class="key" id="ShiftRight">Shift</div>
+                          <div class="key shift" id="ShiftRight">Shift</div>
                         </div>
                         <div class="row">
-                          <div class="key" id="ControlLeft">Ctrl</div>
-                          <div class="key" id="MetaLeft">Win</div>
-                          <div class="key" id="AltLeft">Alt</div>
-                          <div class="key" id="Space"> </div>
-                          <div class="key" id="AltRight">Alt</div>
+                          <div class="key ctrl-left" id="ControlLeft">Ctrl</div>
+                          <div class="key win" id="MetaLeft">Win</div>
+                          <div class="key alt" id="AltLeft">Alt</div>
+                          <div class="key space" id="Space"> </div>
+                          <div class="key alt" id="AltRight">Alt</div>
                           <div class="key" id="ArrowLeft">←</div>
                           <div class="key" id="ArrowDown">↓</div>
                           <div class="key" id="ArrowRight">→</div>
-                          <div class="key" id="ControlRight">Ctrl</div>
+                          <div class="key ctrl-right" id="ControlRight">Ctrl</div>
                         </div>
                       </section>
                     </main>`;
