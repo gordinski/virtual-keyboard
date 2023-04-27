@@ -13,8 +13,12 @@ const keys = document.querySelectorAll('[data-key]');
 const letters = document.querySelectorAll('.letter');
 const symbols = document.querySelectorAll('.symbol');
 const digits = document.querySelectorAll('.digit');
+const ctrlLeft = document.querySelector('#ControlLeft');
+const altLeft = document.querySelector('#AltLeft');
 
-const isCapslock = false;
+let isCapslock = false;
+let textareaData = '';
+let cursorPosition = 0;
 
 function setLangKeyboard() {
   keys.forEach((el) => {
@@ -59,6 +63,50 @@ function changeLetters() {
   }
 }
 
+function enterText(text) {
+  textareaData = textareaData.substring(0, cursorPosition)
+    + text
+    + textareaData.substring(cursorPosition);
+
+  cursorPosition += text.length;
+}
+
+function toUpperAndLowerCase(key) {
+  if (isCapslock) {
+    key.classList.remove('active');
+
+    letters.forEach((e) => {
+      const letter = e;
+      letter.textContent = letter.textContent.toLowerCase();
+    });
+
+    isCapslock = false;
+  } else if (!isCapslock) {
+    key.classList.add('active');
+
+    letters.forEach((e) => {
+      const letter = e;
+      letter.textContent = letter.textContent.toUpperCase();
+    });
+
+    isCapslock = true;
+  }
+}
+
+function determinePressedKey(key) {
+  if (key.classList.contains('key') && !key.classList.contains('control-key')) {
+    enterText(key.textContent);
+  }
+
+  if (key.classList.contains('arrow')) {
+    enterText(key.textContent);
+  }
+
+  if (key.classList.contains('capslock')) {
+    toUpperAndLowerCase(key);
+  }
+}
+
 function pressedKey(e) {
   let key;
   if (e.code) {
@@ -76,12 +124,13 @@ function pressedKey(e) {
       shiftSymbols(currentLang, symbols, digits);
       changeLetters();
     }
+
+    determinePressedKey(key);
   }
 
   if (ctrlLeft.classList.contains('active') && altLeft.classList.contains('active')) {
     changeLang();
   }
-  console.log(e.code);
 }
 
 document.addEventListener('keydown', pressedKey);

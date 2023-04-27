@@ -63,7 +63,7 @@ export default function setKeyboard() {
                           <div class="key letter" data-key="comma" id="Comma"></div>
                           <div class="key letter" data-key="period" id="Period"></div>
                           <div class="key symbol" data-key="slash" id="Slash">/</div>
-                          <div class="key control-key" id="ArrowUp">↑</div>
+                          <div class="key control-key arrow" id="ArrowUp">↑</div>
                           <div class="key control-key shift" id="ShiftRight">Shift</div>
                         </div>
                         <div class="row">
@@ -72,9 +72,9 @@ export default function setKeyboard() {
                           <div class="key control-key alt" id="AltLeft">Alt</div>
                           <div class="key space" id="Space"> </div>
                           <div class="key control-key alt" id="AltRight">Alt</div>
-                          <div class="key control-key" id="ArrowLeft">←</div>
-                          <div class="key control-key" id="ArrowDown">↓</div>
-                          <div class="key control-key" id="ArrowRight">→</div>
+                          <div class="key control-key arrow" id="ArrowLeft">←</div>
+                          <div class="key control-key arrow" id="ArrowDown">↓</div>
+                          <div class="key control-key arrow" id="ArrowRight">→</div>
                           <div class="key control-key ctrl-right" id="ControlRight">Ctrl</div>
                         </div>
                       </section>
