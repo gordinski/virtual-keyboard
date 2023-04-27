@@ -16,6 +16,7 @@ const digits = document.querySelectorAll('.digit');
 const ctrlLeft = document.querySelector('#ControlLeft');
 const altLeft = document.querySelector('#AltLeft');
 const textarea = document.querySelector('.textarea');
+const keyboard = document.querySelector('.keyboard');
 
 let isCapslock = false;
 let textareaData = '';
@@ -172,9 +173,15 @@ function pressedKey(e) {
   }
 }
 
+function keyClicked(e) {
+  const key = e.target;
+  determinePressedKey(key);
+}
+
 textarea.addEventListener('click', () => {
   cursorPosition = textarea.selectionStart;
 });
 
+keyboard.addEventListener('click', keyClicked);
 document.addEventListener('keydown', pressedKey);
 setLangKeyboard();
