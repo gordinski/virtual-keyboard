@@ -86,6 +86,12 @@ function delDel() {
   + textareaData.substring(textarea.selectionEnd + 1);
 }
 
+function updateTextarea() {
+  textarea.textContent = textareaData;
+  textarea.selectionStart = cursorPosition;
+  textarea.focus();
+}
+
 function toUpperAndLowerCase(key) {
   if (isCapslock) {
     key.classList.remove('active');
@@ -136,6 +142,8 @@ function determinePressedKey(key) {
   if (key.classList.contains('del')) {
     delDel();
   }
+
+  updateTextarea();
 }
 
 function pressedKey(e) {
