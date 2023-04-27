@@ -7,6 +7,7 @@ let currentLang = getLang();
 const body = document.querySelector('body');
 body.insertAdjacentHTML('afterbegin', setKeyboard());
 
+const keys = document.querySelectorAll('.key');
 const allKeys = document.querySelectorAll('[data-key]');
 const letterKeys = document.querySelectorAll('.letter');
 const symbolKeys = document.querySelectorAll('.symbol');
@@ -16,6 +17,31 @@ const altLeftKey = document.querySelector('#AltLeft');
 const shiftKeys = document.querySelectorAll('.shift');
 const textarea = document.querySelector('.textarea');
 const keyboard = document.querySelector('.keyboard');
+const span = document.querySelector('.subtitle span');
+
+span.addEventListener('mouseover', () => {
+  keys.forEach((el) => {
+    const key = el;
+    const checkAltCtrl = key.classList.contains('ctrl-left') || key.classList.contains('alt-left');
+    if (!checkAltCtrl) {
+      key.classList.add('inactive');
+    }
+  });
+  altLeftKey.classList.add('active-info');
+  ctrlLeftKey.classList.add('active-info');
+});
+
+span.addEventListener('mouseout', () => {
+  keys.forEach((el) => {
+    const key = el;
+    const checkAltCtrl = key.classList.contains('ctrl-left') || key.classList.contains('alt-left');
+    if (!checkAltCtrl) {
+      key.classList.remove('inactive');
+    }
+  });
+  altLeftKey.classList.remove('active-info');
+  ctrlLeftKey.classList.remove('active-info');
+});
 
 let isCapslock = false;
 let textareaData = '';

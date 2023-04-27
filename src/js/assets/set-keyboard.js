@@ -2,7 +2,7 @@ export default function setKeyboard() {
   const keyboard = `<main class="wrapper">
                       <section class="header">
                         <h1 class="title">RSS Виртуальная клавиатура</h1>
-                        <p class="subtitle">Клавиатура создана в операционной системе Windows<br>Для переключения языка комбинация: левыe ctrl + alt</p>
+                        <p class="subtitle">Клавиатура создана в операционной системе Windows<br>Для переключения языка комбинация: <span>левыe ctrl + alt</span></p>
                       </section>
                       <textarea class="textarea" id="textarea" cols="50" rows="5"></textarea>
                       <section class="keyboard">
@@ -72,7 +72,7 @@ export default function setKeyboard() {
                         <div class="row">
                           <div class="key control-key ctrl-left" id="ControlLeft">Ctrl</div>
                           <div class="key control-key win" id="MetaLeft">⊞</div>
-                          <div class="key control-key alt" id="AltLeft">Alt</div>
+                          <div class="key control-key alt-left alt" id="AltLeft">Alt</div>
                           <div class="key space" id="Space"> </div>
                           <div class="key control-key alt" id="AltRight">Alt</div>
                           <div class="key control-key arrow" id="ArrowLeft">←</div>

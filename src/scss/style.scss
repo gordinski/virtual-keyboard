@@ -39,7 +39,22 @@ body {
 }
 
 .subtitle {
-  opacity: 0.5;
+  line-height: 1.5em;
+  opacity: 0.8;
+
+  span {
+    padding: rem(3) rem(7);
+    border-radius: rem(5);
+    background: #ececec;
+    cursor: default;
+    border: rem(1) solid transparent;
+    transition: all 0.3s ease 0s;
+
+    &:hover {
+      background: #fff;
+      border: rem(1) solid rgb(202, 202, 202);
+    }
+  }
 }
 
 .textarea {
@@ -52,7 +67,7 @@ body {
   transition: all 0.2s ease 0s;
 
   &:focus-visible {
-    border: rem(1) solid rgb(219, 219, 219);
+    border: rem(1) solid rgb(238, 238, 238);
     outline: none;
   }
 }
@@ -116,6 +131,14 @@ body {
     box-shadow: 0 rem(0) 0 0 #e6e6e6;
     transform: translateY(3px);
   }
+}
+
+.active-info {
+  border: rem(1) solid rgba(192, 4, 4, 0.5);
+}
+
+.inactive {
+  opacity: 0.3;
 }
 
 .key-double {
