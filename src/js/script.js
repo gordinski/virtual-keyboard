@@ -15,6 +15,7 @@ const symbols = document.querySelectorAll('.symbol');
 const digits = document.querySelectorAll('.digit');
 const ctrlLeft = document.querySelector('#ControlLeft');
 const altLeft = document.querySelector('#AltLeft');
+const textarea = document.querySelector('.textarea');
 
 let isCapslock = false;
 let textareaData = '';
@@ -71,6 +72,15 @@ function enterText(text) {
   cursorPosition += text.length;
 }
 
+function backspaceDel() {
+  if (cursorPosition > 0) {
+    textareaData = textareaData.substring(0, textarea.selectionStart - 1)
+      + textareaData.substring(textarea.selectionEnd);
+
+    cursorPosition -= 1;
+  }
+}
+
 function toUpperAndLowerCase(key) {
   if (isCapslock) {
     key.classList.remove('active');
@@ -104,6 +114,18 @@ function determinePressedKey(key) {
 
   if (key.classList.contains('capslock')) {
     toUpperAndLowerCase(key);
+  }
+
+  if (key.classList.contains('enter')) {
+    enterText('\n');
+  }
+
+  if (key.classList.contains('tab')) {
+    enterText('\t');
+  }
+
+  if (key.classList.contains('backspace')) {
+    backspaceDel();
   }
 }
 
