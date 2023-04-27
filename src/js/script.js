@@ -84,7 +84,7 @@ function backspaceDel() {
 }
 
 function delDel() {
-  textareaData = textareaText.substring(0, textarea.selectionStart)
+  textareaData = textareaData.substring(0, textarea.selectionStart)
     + textareaData.substring(textarea.selectionEnd + 1);
 }
 

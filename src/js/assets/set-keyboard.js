@@ -4,7 +4,7 @@ export default function setKeyboard() {
                       <textarea class="textarea" id="textarea" cols="50" rows="5"></textarea>
                       <section class="keyboard">
                         <div class="row">
-                          <div class="key letter" data-key="backquote" id='Backquote'>\`</div>
+                          <div class="key letter symbol" data-key="backquote" id='Backquote'>\`</div>
                           <div class="key digit" id="Digit1">1</div>
                           <div class="key digit" id="Digit2">2</div>
                           <div class="key digit" id="Digit3">3</div>
@@ -31,8 +31,8 @@ export default function setKeyboard() {
                           <div class="key letter" data-key="i" id="KeyI"></div>
                           <div class="key letter" data-key="o" id="KeyO"></div>
                           <div class="key letter" data-key="p" id="KeyP"></div>
-                          <div class="key letter" data-key="[" id="BracketLeft">[</div>
-                          <div class="key letter" data-key="]" id="BracketRight">]</div>
+                          <div class="key letter symbol" data-key="[" id="BracketLeft">[</div>
+                          <div class="key letter symbol" data-key="]" id="BracketRight">]</div>
                           <div class="key symbol" id="Backslash">\\</div>
                           <div class="key control-key del" id="Delete">Del</div>
                         </div>
@@ -60,8 +60,8 @@ export default function setKeyboard() {
                           <div class="key letter" data-key="b" id="KeyB"></div>
                           <div class="key letter" data-key="n" id="KeyN"></div>
                           <div class="key letter" data-key="m" id="KeyM"></div>
-                          <div class="key letter" data-key="comma" id="Comma"></div>
-                          <div class="key letter" data-key="period" id="Period"></div>
+                          <div class="key letter symbol" data-key="comma" id="Comma"></div>
+                          <div class="key letter symbol" data-key="period" id="Period"></div>
                           <div class="key symbol" data-key="slash" id="Slash">/</div>
                           <div class="key control-key arrow" id="ArrowUp">↑</div>
                           <div class="key control-key shift" id="ShiftRight">Shift</div>
