@@ -20,8 +20,26 @@ body {
   align-items: center;
   flex-direction: column;
   max-width: rem(1000);
+  padding-top: rem(40);
   width: 100%;
   gap: rem(20);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: rem(10);
+}
+
+.title,
+.subtitle {
+  margin: 0;
+}
+
+.subtitle {
+  opacity: 0.5;
 }
 
 .textarea {

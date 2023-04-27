@@ -357,8 +357,26 @@ body {
   align-items: center;
   flex-direction: column;
   max-width: 62.5rem;
+  padding-top: 2.5rem;
   width: 100%;
   gap: 1.25rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 0.625rem;
+}
+
+.title,
+.subtitle {
+  margin: 0;
+}
+
+.subtitle {
+  opacity: 0.5;
 }
 
 .textarea {

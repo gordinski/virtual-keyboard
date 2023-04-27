@@ -146,7 +146,7 @@ function determinePressedKey(key) {
 }
 
 function pressedKey(e) {
-  let key = document.querySelector(`#${e.code}`);
+  const key = document.querySelector(`#${e.code}`);
 
   if (key) {
     if (key.classList.contains('key')) {
@@ -189,7 +189,7 @@ function determineUpKey(key) {
 }
 
 function releaseKey(e) {
-  let key = document.querySelector(`#${e.code}`);
+  const key = document.querySelector(`#${e.code}`);
 
   if (key) {
     if (key.classList.contains('control-key') && !key.classList.contains('capslock')) {
