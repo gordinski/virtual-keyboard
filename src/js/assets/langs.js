@@ -92,22 +92,6 @@ function saveLang() {
   return getLang();
 }
 
-function switchLang(word) {
-  let flagShift = false;
-  let flagAlt = false;
-
-  if (word === 'shift') {
-    flagShift = true;
-  } else if (word === 'alt') {
-    flagAlt = true;
-  } else if (flagAlt && flagShift) {
-    flagAlt = false;
-    flagShift = false;
-
-    saveLang();
-  }
-}
-
 export {
-  langs, saveLang, getLang, switchLang,
+  langs, saveLang, getLang,
 };

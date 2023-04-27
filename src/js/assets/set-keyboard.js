@@ -5,22 +5,22 @@ export default function setKeyboard() {
                       <section class="keyboard">
                         <div class="row">
                           <div class="key letter" data-key="backquote" id='Backquote'>\`</div>
-                          <div class="key" id="Digit1">1</div>
-                          <div class="key" id="Digit2">2</div>
-                          <div class="key" id="Digit3">3</div>
-                          <div class="key" id="Digit4">4</div>
-                          <div class="key" id="Digit5">5</div>
-                          <div class="key" id="Digit6">6</div>
-                          <div class="key" id="Digit7">7</div>
-                          <div class="key" id="Digit8">8</div>
-                          <div class="key" id="Digit9">9</div>
-                          <div class="key" id="Digit0">0</div>
-                          <div class="key" id="Minus">-</div>
-                          <div class="key" id="Equal">=</div>
-                          <div class="key backspace" id="Backspace">Backspace</div>
+                          <div class="key digit" id="Digit1">1</div>
+                          <div class="key digit" id="Digit2">2</div>
+                          <div class="key digit" id="Digit3">3</div>
+                          <div class="key digit" id="Digit4">4</div>
+                          <div class="key digit" id="Digit5">5</div>
+                          <div class="key digit" id="Digit6">6</div>
+                          <div class="key digit" id="Digit7">7</div>
+                          <div class="key digit" id="Digit8">8</div>
+                          <div class="key digit" id="Digit9">9</div>
+                          <div class="key digit" id="Digit0">0</div>
+                          <div class="key symbol" id="Minus">-</div>
+                          <div class="key symbol" id="Equal">=</div>
+                          <div class="key control-key backspace" id="Backspace">Backspace</div>
                         </div>
                         <div class="row">
-                          <div class="key tab" id="Tab">Tab</div>
+                          <div class="key control-key tab" id="Tab">Tab</div>
                           <div class="key letter" data-key="q" id="KeyQ"></div>
                           <div class="key letter" data-key="w" id="KeyW"></div>
                           <div class="key letter" data-key="e" id="KeyE"></div>
@@ -33,11 +33,11 @@ export default function setKeyboard() {
                           <div class="key letter" data-key="p" id="KeyP"></div>
                           <div class="key letter" data-key="[" id="BracketLeft">[</div>
                           <div class="key letter" data-key="]" id="BracketRight">]</div>
-                          <div class="key" id="Backslash">\\</div>
-                          <div class="key del" id="Delete">Del</div>
+                          <div class="key symbol" id="Backslash">\\</div>
+                          <div class="key control-key del" id="Delete">Del</div>
                         </div>
                         <div class="row">
-                          <div class="key capslock" id="CapsLock">Caps lock</div>
+                          <div class="key control-key capslock" id="CapsLock">Caps lock</div>
                           <div class="key letter" data-key="a" id="KeyA"></div>
                           <div class="key letter" data-key="s" id="KeyS"></div>
                           <div class="key letter" data-key="d" id="KeyD"></div>
@@ -47,12 +47,12 @@ export default function setKeyboard() {
                           <div class="key letter" data-key="j" id="KeyJ"></div>
                           <div class="key letter" data-key="k" id="KeyK"></div>
                           <div class="key letter" data-key="l" id="KeyL"></div>
-                          <div class="key letter" data-key=";" id="Semicolon"></div>
-                          <div class="key letter" data-key="quotes" id="Quote"></div>
-                          <div class="key enter" id="Enter">Enter</div>
+                          <div class="key letter symbol" data-key=";" id="Semicolon"></div>
+                          <div class="key letter symbol" data-key="quotes" id="Quote"></div>
+                          <div class="key control-key enter" id="Enter">Enter</div>
                         </div>
                         <div class="row">
-                          <div class="key shift" id="ShiftLeft">Shift</div>
+                          <div class="key control-key shift" id="ShiftLeft">Shift</div>
                           <div class="key letter" data-key="z" id="KeyZ"></div>
                           <div class="key letter" data-key="x" id="KeyX"></div>
                           <div class="key letter" data-key="c" id="KeyC"></div>
@@ -62,20 +62,20 @@ export default function setKeyboard() {
                           <div class="key letter" data-key="m" id="KeyM"></div>
                           <div class="key letter" data-key="comma" id="Comma"></div>
                           <div class="key letter" data-key="period" id="Period"></div>
-                          <div class="key" data-key="slash" id="Slash">/</div>
-                          <div class="key" id="ArrowUp">↑</div>
-                          <div class="key shift" id="ShiftRight">Shift</div>
+                          <div class="key symbol" data-key="slash" id="Slash">/</div>
+                          <div class="key control-key" id="ArrowUp">↑</div>
+                          <div class="key control-key shift" id="ShiftRight">Shift</div>
                         </div>
                         <div class="row">
-                          <div class="key ctrl-left" id="ControlLeft">Ctrl</div>
-                          <div class="key win" id="MetaLeft">Win</div>
-                          <div class="key alt" id="AltLeft">Alt</div>
+                          <div class="key control-key ctrl-left" id="ControlLeft">Ctrl</div>
+                          <div class="key control-key win" id="MetaLeft">Win</div>
+                          <div class="key control-key alt" id="AltLeft">Alt</div>
                           <div class="key space" id="Space"> </div>
-                          <div class="key alt" id="AltRight">Alt</div>
-                          <div class="key" id="ArrowLeft">←</div>
-                          <div class="key" id="ArrowDown">↓</div>
-                          <div class="key" id="ArrowRight">→</div>
-                          <div class="key ctrl-right" id="ControlRight">Ctrl</div>
+                          <div class="key control-key alt" id="AltRight">Alt</div>
+                          <div class="key control-key" id="ArrowLeft">←</div>
+                          <div class="key control-key" id="ArrowDown">↓</div>
+                          <div class="key control-key" id="ArrowRight">→</div>
+                          <div class="key control-key ctrl-right" id="ControlRight">Ctrl</div>
                         </div>
                       </section>
                     </main>`;
