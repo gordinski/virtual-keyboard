@@ -9,12 +9,13 @@ let currentLang = getLang();
 const body = document.querySelector('body');
 body.insertAdjacentHTML('afterbegin', setKeyboard());
 
-const keys = document.querySelectorAll('[data-key]');
-const letters = document.querySelectorAll('.letter');
-const symbols = document.querySelectorAll('.symbol');
-const digits = document.querySelectorAll('.digit');
-const ctrlLeft = document.querySelector('#ControlLeft');
-const altLeft = document.querySelector('#AltLeft');
+const allKeys = document.querySelectorAll('[data-key]');
+const letterKeys = document.querySelectorAll('.letter');
+const symbolKeys = document.querySelectorAll('.symbol');
+const digitKeys = document.querySelectorAll('.digit');
+const ctrlLeftKey = document.querySelector('#ControlLeft');
+const altLeftKey = document.querySelector('#AltLeft');
+const shiftKeys = document.querySelectorAll('.shift');
 const textarea = document.querySelector('.textarea');
 const keyboard = document.querySelector('.keyboard');
 
@@ -23,7 +24,7 @@ let textareaData = '';
 let cursorPosition = 0;
 
 function setLangKeyboard() {
-  keys.forEach((el) => {
+  allKeys.forEach((el) => {
     const elem = el;
     elem.textContent = langs[getLang()][elem.dataset.key];
   });
@@ -39,12 +40,12 @@ function changeLang() {
   saveLang();
 
   if (isCapslock) {
-    keys.forEach((el) => {
+    allKeys.forEach((el) => {
       const elem = el;
       elem.textContent = langs[currentLang][elem.dataset.key].toUpperCase();
     });
   } else if (!isCapslock) {
-    keys.forEach((el) => {
+    allKeys.forEach((el) => {
       const elem = el;
       elem.textContent = langs[currentLang][elem.dataset.key].toLowerCase();
     });
@@ -53,12 +54,12 @@ function changeLang() {
 
 function changeLetters() {
   if (isCapslock) {
-    letters.forEach((el) => {
+    letterKeys.forEach((el) => {
       const letter = el;
       letter.textContent = letter.textContent.toLowerCase();
     });
   } else {
-    letters.forEach((el) => {
+    letterKeys.forEach((el) => {
       const letter = el;
       letter.textContent = letter.textContent.toUpperCase();
     });
@@ -84,7 +85,7 @@ function backspaceDel() {
 
 function delDel() {
   textareaData = textareaText.substring(0, textarea.selectionStart)
-  + textareaData.substring(textarea.selectionEnd + 1);
+    + textareaData.substring(textarea.selectionEnd + 1);
 }
 
 function updateTextarea() {
@@ -97,7 +98,7 @@ function toUpperAndLowerCase(key) {
   if (isCapslock) {
     key.classList.remove('active');
 
-    letters.forEach((e) => {
+    letterKeys.forEach((e) => {
       const letter = e;
       letter.textContent = letter.textContent.toLowerCase();
     });
@@ -106,7 +107,7 @@ function toUpperAndLowerCase(key) {
   } else if (!isCapslock) {
     key.classList.add('active');
 
-    letters.forEach((e) => {
+    letterKeys.forEach((e) => {
       const letter = e;
       letter.textContent = letter.textContent.toUpperCase();
     });
@@ -161,15 +162,51 @@ function pressedKey(e) {
     key.classList.add('active');
 
     if (key.classList.contains('shift')) {
-      shiftSymbols(currentLang, symbols, digits);
+      shiftSymbols(currentLang, symbolKeys, digitKeys);
       changeLetters();
     }
 
     determinePressedKey(key);
   }
 
-  if (ctrlLeft.classList.contains('active') && altLeft.classList.contains('active')) {
+  if (ctrlLeftKey.classList.contains('active') && altLeftKey.classList.contains('active')) {
     changeLang();
+  }
+}
+
+function determineUpKey(key) {
+  if (key.classList.contains('shift')) {
+    if (!isCapslock) {
+      letterKeys.forEach((el) => {
+        const letter = el;
+        letter.textContent = letter.textContent.toLowerCase();
+      });
+    } else if (isCapslock) {
+      letterKeys.forEach((el) => {
+        const letter = el;
+        letter.textContent = letter.textContent.toUpperCase();
+      });
+    }
+
+    unshiftSymbols(currentLang, symbolKeys, digitKeys);
+  }
+}
+
+function releaseKey(e) {
+  let key;
+  if (e.code) {
+    key = document.querySelector(`#${e.code}`);
+  } else {
+    key = document.querySelector('#ShiftRight');
+  }
+  if (key) {
+    if (key.classList.contains('control-key') && !key.classList.contains('capslock')) {
+      key.classList.remove('active-background');
+    }
+    if (!key.classList.contains('capslock')) {
+      key.classList.remove('active');
+    }
+    determineUpKey(key);
   }
 }
 
@@ -184,4 +221,16 @@ textarea.addEventListener('click', () => {
 
 keyboard.addEventListener('click', keyClicked);
 document.addEventListener('keydown', pressedKey);
+document.addEventListener('keydown', releaseKey);
+
+shiftKeys.forEach((elem) => elem.addEventListener('mousedown', () => {
+  shiftSymbols(currentLang, symbolKeys, digitKeys);
+  changeLetters();
+}));
+
+shiftKeys.forEach((elem) => elem.addEventListener('mouseup', (e) => {
+  const key = e.target;
+  determineUpKey(key);
+}));
+
 setLangKeyboard();
