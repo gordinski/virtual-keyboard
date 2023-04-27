@@ -5,8 +5,9 @@ import setKeyboard from './assets/set-keyboard.js'; // eslint-disable-line impor
 
 const body = document.querySelector('body');
 body.insertAdjacentHTML('afterbegin', setKeyboard());
-
 const keys = document.querySelectorAll('[data-key]');
+const letters = document.querySelectorAll('.letter');
+const isCapslock = false;
 
 function setLangKeyboard() {
   keys.forEach((el) => {
@@ -15,4 +16,19 @@ function setLangKeyboard() {
   });
 }
 
+function changeKeyWithCapslock() {
+  if (!isCapslock) {
+    letters.forEach((el) => {
+      const letter = el;
+      letter.textContent = letter.textContent.toLowerCase();
+    });
+  } else {
+    letters.forEach((el) => {
+      const letter = el;
+      letter.textContent = letter.textContent.toUpperCase();
+    });
+  }
+}
+
 setLangKeyboard();
+changeKeyWithCapslock();

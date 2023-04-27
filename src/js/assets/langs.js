@@ -108,4 +108,6 @@ function switchLang(word) {
   }
 }
 
-export { langs, saveLang, getLang, switchLang };
+export {
+  langs, saveLang, getLang, switchLang,
+};
