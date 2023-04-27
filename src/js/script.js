@@ -172,5 +172,9 @@ function pressedKey(e) {
   }
 }
 
+textarea.addEventListener('click', () => {
+  cursorPosition = textarea.selectionStart;
+});
+
 document.addEventListener('keydown', pressedKey);
 setLangKeyboard();
