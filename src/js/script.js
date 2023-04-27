@@ -81,6 +81,11 @@ function backspaceDel() {
   }
 }
 
+function delDel() {
+  textareaData = textareaText.substring(0, textarea.selectionStart)
+  + textareaData.substring(textarea.selectionEnd + 1);
+}
+
 function toUpperAndLowerCase(key) {
   if (isCapslock) {
     key.classList.remove('active');
@@ -126,6 +131,10 @@ function determinePressedKey(key) {
 
   if (key.classList.contains('backspace')) {
     backspaceDel();
+  }
+
+  if (key.classList.contains('del')) {
+    delDel();
   }
 }
 
