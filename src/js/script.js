@@ -18,6 +18,7 @@ const shiftKeys = document.querySelectorAll('.shift');
 const textarea = document.querySelector('.textarea');
 const keyboard = document.querySelector('.keyboard');
 const span = document.querySelector('.subtitle span');
+const clickSound = new Audio('../src/audio/click.mp3');
 
 span.addEventListener('mouseover', () => {
   keys.forEach((el) => {
@@ -139,33 +140,45 @@ function toUpperAndLowerCase(key) {
   }
 }
 
+function playSound() {
+  const audioClone = clickSound.cloneNode();
+  audioClone.play();
+}
+
 function determinePressedKey(key) {
   if (key.classList.contains('key') && !key.classList.contains('control-key')) {
     enterText(key.textContent);
+    playSound();
   }
 
   if (key.classList.contains('arrow')) {
     enterText(key.textContent);
+    playSound();
   }
 
   if (key.classList.contains('capslock')) {
     toUpperAndLowerCase(key);
+    playSound();
   }
 
   if (key.classList.contains('enter')) {
     enterText('\n');
+    playSound();
   }
 
   if (key.classList.contains('tab')) {
     enterText('\t');
+    playSound();
   }
 
   if (key.classList.contains('backspace')) {
     backspaceDel();
+    playSound();
   }
 
   if (key.classList.contains('del')) {
     deleteKeyDel();
+    playSound();
   }
 
   updateTextarea();
@@ -191,6 +204,7 @@ function pressedKey(e) {
     }
 
     determinePressedKey(key);
+    playSound();
   }
 
   if (ctrlLeftKey.classList.contains('active') && altLeftKey.classList.contains('active')) {

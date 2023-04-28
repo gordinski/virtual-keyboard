@@ -9,10 +9,6 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    'linebreak-style': [
-      'error',
-      'windows',
-    ],
     'import/extensions': [
       'error',
       'ignorePackages',
