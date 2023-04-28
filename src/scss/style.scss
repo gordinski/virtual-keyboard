@@ -12,9 +12,11 @@ body {
   background: #fbfbfb;
   color: #12073a;
   font-family: 'Source Code Pro', monospace;
+  user-select: none;
 }
 
 .wrapper {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -83,7 +85,6 @@ body {
     rem(-5) rem(-5) rem(10) rgba(0, 0, 255, 0.01),
     rem(-2) rem(-2) rem(6) rgba(0, 0, 255, 0.03),
     rem(0) rem(30) rem(30) rgba(0, 0, 0, 0.15);
-  user-select: none;
 }
 
 .row {
@@ -186,4 +187,24 @@ body {
 
 .ctrl-right {
   width: calc(rem(855) - (rem(58) * 4) - (rem(10) * 8) - rem(343) - (rem(45) * 3));
+}
+
+.icon {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+}
+
+.sound-on,
+.sound-off {
+  position: absolute;
+  top: rem(15);
+  right: rem(25);
+  padding: rem(10);
+  border-radius: rem(10);
+  transition: all 0.2s ease 0s;
+}
+
+.disable {
+  display: none;
 }

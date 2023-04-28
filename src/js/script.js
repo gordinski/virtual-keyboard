@@ -19,6 +19,8 @@ const textarea = document.querySelector('.textarea');
 const keyboard = document.querySelector('.keyboard');
 const span = document.querySelector('.subtitle span');
 const clickSound = new Audio('../src/audio/click.mp3');
+const iconSoundOn = document.querySelector('.sound-on');
+const iconSoundOff = document.querySelector('.sound-off');
 
 span.addEventListener('mouseover', () => {
   keys.forEach((el) => {
@@ -47,6 +49,46 @@ span.addEventListener('mouseout', () => {
 let isCapslock = false;
 let textareaData = '';
 let cursorPosition = 0;
+
+function getSound() {
+  if (!localStorage.getItem('sound')) {
+    localStorage.setItem('sound', 'on');
+    iconSoundOff.classList.add('disable');
+  }
+
+  if (localStorage.getItem('sound') === 'on') {
+    if (!iconSoundOff.classList.contains('disable')) {
+      iconSoundOff.classList.add('disable');
+    }
+  }
+
+  if (localStorage.getItem('sound') === 'off') {
+    iconSoundOff.classList.remove('disable');
+    iconSoundOn.classList.add('disable');
+  }
+
+  return localStorage.getItem('sound');
+}
+
+getSound();
+
+function toggleSound() {
+  const currentSound = getSound();
+
+  if (currentSound === 'on') {
+    iconSoundOff.classList.remove('disable');
+    iconSoundOn.classList.add('disable');
+    localStorage.setItem('sound', 'off');
+  }
+  if (currentSound === 'off') {
+    iconSoundOn.classList.remove('disable');
+    iconSoundOff.classList.add('disable');
+    localStorage.setItem('sound', 'on');
+  }
+}
+
+iconSoundOn.addEventListener('click', toggleSound);
+iconSoundOff.addEventListener('click', toggleSound);
 
 function setLangKeyboard() {
   allKeys.forEach((el) => {
@@ -141,8 +183,10 @@ function toUpperAndLowerCase(key) {
 }
 
 function playSound() {
-  const audioClone = clickSound.cloneNode();
-  audioClone.play();
+  if (getSound() === 'on') {
+    const audioClone = clickSound.cloneNode();
+    audioClone.play();
+  }
 }
 
 function determinePressedKey(key) {

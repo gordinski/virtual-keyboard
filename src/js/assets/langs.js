@@ -81,15 +81,13 @@ function getLang() {
 }
 
 function saveLang() {
-  const currentLang = getLang() || 'en';
+  const currentLang = getLang();
 
   if (currentLang === 'en') {
     localStorage.setItem('lang', 'ru');
   } else {
     localStorage.setItem('lang', 'en');
   }
-
-  return getLang();
 }
 
 export {
