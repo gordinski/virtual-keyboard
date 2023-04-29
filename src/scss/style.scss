@@ -1,0 +1,210 @@
+@import "normalize";
+@import "helpers";
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  background: #fbfbfb;
+  color: #12073a;
+  font-family: 'Source Code Pro', monospace;
+  user-select: none;
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: rem(1000);
+  padding-top: rem(40);
+  width: 100%;
+  gap: rem(20);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: rem(10);
+}
+
+.title,
+.subtitle {
+  margin: 0;
+}
+
+.subtitle {
+  line-height: 1.5em;
+  opacity: 0.8;
+
+  span {
+    padding: rem(3) rem(7);
+    border-radius: rem(5);
+    background: #ececec;
+    cursor: default;
+    border: rem(1) solid transparent;
+    transition: all 0.3s ease 0s;
+
+    &:hover {
+      background: #fff;
+      border: rem(1) solid rgb(202, 202, 202);
+    }
+  }
+}
+
+.textarea {
+  font-family: inherit;
+  resize: none;
+  margin-bottom: rem(30);
+  border-radius: rem(16);
+  border: rem(1) solid rgb(238, 238, 238);
+  padding: rem(16);
+  transition: all 0.2s ease 0s;
+
+  &:focus-visible {
+    border: rem(1) solid rgb(238, 238, 238);
+    outline: none;
+  }
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  padding: rem(15);
+  border-radius: rem(16);
+  background: #fbfbfb;
+  border: rem(1) solid rgb(230, 230, 230);
+  box-shadow:
+    rem(-5) rem(-5) rem(10) rgba(0, 0, 255, 0.01),
+    rem(-2) rem(-2) rem(6) rgba(0, 0, 255, 0.03),
+    rem(0) rem(30) rem(30) rgba(0, 0, 0, 0.15);
+}
+
+.row {
+  max-width: 100%;
+  display: flex;
+  height: rem(45);
+  gap: rem(10);
+
+  &+& {
+    margin-top: rem(10);
+  }
+}
+
+.key {
+  display: flex;
+  padding: rem(15);
+  align-items: center;
+  justify-content: center;
+  border-radius: rem(8);
+  width: rem(45);
+  box-sizing: border-box;
+  transform: translate3d(0, 0, rem(30));
+  cursor: pointer;
+  background: #fff;
+  border: rem(1) solid rgb(230, 230, 230);
+  box-shadow: 0 rem(3) 0 0 #e6e6e6;
+  transition: all 0.2s ease 0s;
+
+  @media (any-hover: hover) {
+    &:hover {
+      background: #f7f7f7;
+    }
+  }
+
+  &:active {
+    background: #f7f7f7;
+    color: #555555;
+    box-shadow: 0 rem(0) 0 0 #e6e6e6;
+    transform: translateY(3px);
+  }
+
+  &.active {
+    background: #f7f7f7;
+    color: #555555;
+    box-shadow: 0 rem(0) 0 0 #e6e6e6;
+    transform: translateY(3px);
+  }
+}
+
+.active-info {
+  border: rem(1) solid rgba(192, 4, 4, 0.5);
+}
+
+.inactive {
+  opacity: 0.3;
+}
+
+.key-double {
+  flex-direction: column;
+
+  & span:first-child {
+    font-size: rem(12);
+  }
+}
+
+.backspace {
+  width: calc((rem(855) - (rem(45) * 13) - (rem(10) * 13)));
+}
+
+.tab,
+.del {
+  width: calc((rem(855) - (rem(45) * 13) - (rem(10) * 14)) / 2);
+}
+
+.capslock,
+.enter {
+  width: calc((rem(855) - (rem(45) * 11) - (rem(10) * 12)) / 2);
+}
+
+.capslock.active {
+  border: rem(1) solid rgba(192, 4, 4, 0.5);
+}
+
+.shift {
+  width: calc((rem(855) - (rem(45) * 11) - (rem(10) * 12)) / 2);
+}
+
+.alt,
+.win {
+  width: rem(58);
+}
+
+.space {
+  width: calc((rem(855) - (rem(45) * 3) - (rem(60) * 5) - (rem(10) * 8)) + rem(3));
+}
+
+.ctrl-left {
+  width: rem(58);
+}
+
+.ctrl-right {
+  width: calc(rem(855) - (rem(58) * 4) - (rem(10) * 8) - rem(343) - (rem(45) * 3));
+}
+
+.icon {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+}
+
+.sound-on,
+.sound-off {
+  position: absolute;
+  top: rem(15);
+  right: rem(25);
+  padding: rem(10);
+  border-radius: rem(10);
+  transition: all 0.2s ease 0s;
+}
+
+.disable {
+  display: none;
+}
