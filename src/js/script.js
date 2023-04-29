@@ -18,9 +18,9 @@ const shiftKeys = document.querySelectorAll('.shift');
 const textarea = document.querySelector('.textarea');
 const keyboard = document.querySelector('.keyboard');
 const span = document.querySelector('.subtitle span');
-const clickSound = new Audio('../src/audio/click.mp3');
-const iconSoundOn = document.querySelector('.sound-on');
-const iconSoundOff = document.querySelector('.sound-off');
+// const clickSound = new Audio('../src/audio/click.mp3');
+// const iconSoundOn = document.querySelector('.sound-on');
+// const iconSoundOff = document.querySelector('.sound-off');
 
 span.addEventListener('mouseover', () => {
   keys.forEach((el) => {
@@ -50,45 +50,45 @@ let isCapslock = false;
 let textareaData = '';
 let cursorPosition = 0;
 
-function getSound() {
-  if (!localStorage.getItem('sound')) {
-    localStorage.setItem('sound', 'on');
-    iconSoundOff.classList.add('disable');
-  }
+// function getSound() {
+//   if (!localStorage.getItem('sound')) {
+//     localStorage.setItem('sound', 'on');
+//     iconSoundOff.classList.add('disable');
+//   }
 
-  if (localStorage.getItem('sound') === 'on') {
-    if (!iconSoundOff.classList.contains('disable')) {
-      iconSoundOff.classList.add('disable');
-    }
-  }
+//   if (localStorage.getItem('sound') === 'on') {
+//     if (!iconSoundOff.classList.contains('disable')) {
+//       iconSoundOff.classList.add('disable');
+//     }
+//   }
 
-  if (localStorage.getItem('sound') === 'off') {
-    iconSoundOff.classList.remove('disable');
-    iconSoundOn.classList.add('disable');
-  }
+//   if (localStorage.getItem('sound') === 'off') {
+//     iconSoundOff.classList.remove('disable');
+//     iconSoundOn.classList.add('disable');
+//   }
 
-  return localStorage.getItem('sound');
-}
+//   return localStorage.getItem('sound');
+// }
 
-getSound();
+// getSound();
 
-function toggleSound() {
-  const currentSound = getSound();
+// function toggleSound() {
+//   const currentSound = getSound();
 
-  if (currentSound === 'on') {
-    iconSoundOff.classList.remove('disable');
-    iconSoundOn.classList.add('disable');
-    localStorage.setItem('sound', 'off');
-  }
-  if (currentSound === 'off') {
-    iconSoundOn.classList.remove('disable');
-    iconSoundOff.classList.add('disable');
-    localStorage.setItem('sound', 'on');
-  }
-}
+//   if (currentSound === 'on') {
+//     iconSoundOff.classList.remove('disable');
+//     iconSoundOn.classList.add('disable');
+//     localStorage.setItem('sound', 'off');
+//   }
+//   if (currentSound === 'off') {
+//     iconSoundOn.classList.remove('disable');
+//     iconSoundOff.classList.add('disable');
+//     localStorage.setItem('sound', 'on');
+//   }
+// }
 
-iconSoundOn.addEventListener('click', toggleSound);
-iconSoundOff.addEventListener('click', toggleSound);
+// iconSoundOn.addEventListener('click', toggleSound);
+// iconSoundOff.addEventListener('click', toggleSound);
 
 function setLangKeyboard() {
   allKeys.forEach((el) => {
@@ -182,47 +182,47 @@ function toUpperAndLowerCase(key) {
   }
 }
 
-function playSound() {
-  if (getSound() === 'on') {
-    const audioClone = clickSound.cloneNode();
-    audioClone.play();
-  }
-}
+// function playSound() {
+//   if (getSound() === 'on') {
+//     const audioClone = clickSound.cloneNode();
+//     audioClone.play();
+//   }
+// }
 
 function determinePressedKey(key) {
   if (key.classList.contains('key') && !key.classList.contains('control-key')) {
     enterText(key.textContent);
-    playSound();
+    // playSound();
   }
 
   if (key.classList.contains('arrow')) {
     enterText(key.textContent);
-    playSound();
+    // playSound();
   }
 
   if (key.classList.contains('capslock')) {
     toUpperAndLowerCase(key);
-    playSound();
+    // playSound();
   }
 
   if (key.classList.contains('enter')) {
     enterText('\n');
-    playSound();
+    // playSound();
   }
 
   if (key.classList.contains('tab')) {
     enterText('\t');
-    playSound();
+    // playSound();
   }
 
   if (key.classList.contains('backspace')) {
     backspaceDel();
-    playSound();
+    // playSound();
   }
 
   if (key.classList.contains('del')) {
     deleteKeyDel();
-    playSound();
+    // playSound();
   }
 
   updateTextarea();
@@ -248,7 +248,7 @@ function pressedKey(e) {
     }
 
     determinePressedKey(key);
-    playSound();
+    // playSound();
   }
 
   if (ctrlLeftKey.classList.contains('active') && altLeftKey.classList.contains('active')) {
