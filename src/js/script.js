@@ -18,7 +18,7 @@ const shiftKeys = document.querySelectorAll('.shift');
 const textarea = document.querySelector('.textarea');
 const keyboard = document.querySelector('.keyboard');
 const span = document.querySelector('.subtitle span');
-const clickSound = new Audio('../audio/click.mp3');
+const clickSound = new Audio('../src/audio/click.mp3');
 const iconSoundOn = document.querySelector('.sound-on');
 const iconSoundOff = document.querySelector('.sound-off');
 
